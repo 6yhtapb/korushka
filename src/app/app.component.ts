@@ -26,20 +26,18 @@ export class AppComponent {
       });
       this.nations = Array.from(new Set(this.ships.map(x => x.nation.title))).sort();
       this.classNames = Array.from(new Set(this.ships.map(x => x.type.title))).sort();
-
-      console.log(this.ships);
     });;
   }
   filterShips(shipFilters: any){
-    this.ships=[]
+    this.ships=this.appsService.getShipsData();
     if(shipFilters.levels.length>0){
-      this.ships = this.ships.concat(this.appsService.getShipsData().filter(p => shipFilters.levels.includes(p.level)));
+      this.ships = this.ships.filter(p => shipFilters.levels.includes(p.level));
       }
       if(shipFilters.nations.length>0){
-        this.ships =this.ships.concat(this.appsService.getShipsData().filter(p => shipFilters.nations.includes(p.nation.title)));
+        this.ships =this.ships.filter(p => shipFilters.nations.includes(p.nation.title));
       }
       if(shipFilters.classNames.length>0){
-        this.ships =this.ships.concat(this.appsService.getShipsData().filter(p => shipFilters.classNames.includes(p.type.title)));
+        this.ships =this.ships.filter(p => shipFilters.classNames.includes(p.type.title));
       }
     if(shipFilters.levels.length==0 && shipFilters.nations.length==0 && shipFilters.classNames.length==0){
       this.ships = this.appsService.getShipsData()

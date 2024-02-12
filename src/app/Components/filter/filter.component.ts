@@ -26,7 +26,6 @@ export class FilterComponent implements OnInit {
     } else {
       this.selectedLevels.splice(index, 1);
     }
-    console.log( this.selectedLevels,index);
     this.onFilterPressed?.emit({
       levels: this.selectedLevels,
       nations: this.selectedNations,
