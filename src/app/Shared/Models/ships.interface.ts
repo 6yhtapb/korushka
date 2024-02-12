@@ -32,6 +32,3 @@ export interface NationIcons {
   medium:string;
   large:string;
 }
-export class ShipsData {
-  vehicles!: ShipsResponse;
-}

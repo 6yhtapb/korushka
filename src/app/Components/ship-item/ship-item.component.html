@@ -1,0 +1,30 @@
+<div class="ship-item" *ngIf="ship">
+  <div class="ship-item__header">
+    <div class="ship-item__header__title">
+      {{ ship.title }}
+    </div>
+
+    <div class="ship-item__header__type">
+      {{ ship.type.title }}
+      <img src="{{ ship.type.icons.default }}">
+    </div>
+    <div class="ship-item__header__level">
+      {{ ship.level }}
+    </div>
+    <div class="ship-item__header__nation">
+      {{ ship.nation.title }}
+      <img src="{{ ship.nation.icons.large }}">
+    </div>
+  </div>
+  <div class="ship-item__content">
+    <div class="ship-item__content__image">
+      <img src="{{ ship.icons.medium }}">
+    </div>
+    <div class="ship-item__content__text">
+      {{ ship.description }}
+    </div>
+  </div>
+
+      <!-- {{ ship.nation.color }} -->
+
+    </div>

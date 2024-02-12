@@ -1,0 +1,13 @@
+
+.app-wrapper{
+  display: flex;
+  flex-direction: row;
+  background-color: #102031;
+  color: #fff;
+}
+.filters{
+  flex-basis: 25%;
+}
+.ships{
+  flex-basis: 75%;
+}

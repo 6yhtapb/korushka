@@ -5,7 +5,7 @@ import { RouterModule } from "@angular/router";
 import { SharedModule } from "src/app/Shared/Models/shared.module";
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { InMemoryCache } from '@apollo/client/core';
+import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { environment } from "src/environments/environment";
 @NgModule({
   declarations: [
@@ -23,13 +23,13 @@ import { environment } from "src/environments/environment";
   providers: [
     {
       provide: APOLLO_OPTIONS,
-      useFactory(httpLink: HttpLink) {
+      useFactory: (httpLink: HttpLink) => {
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: `${environment.ApiPath}`,
+            uri: `${environment.ApiPath}`
           }),
-        };
+        } as ApolloClientOptions<any>;
       },
       deps: [HttpLink],
     },

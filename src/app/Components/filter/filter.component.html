@@ -1,0 +1,48 @@
+<div class="filter">
+  <div class="filter__header">
+    <h3 class="filter__header__title">Level</h3>
+  </div>
+  <div class="filter__content">
+    <div *ngFor="let level of levelsItems" class="filter__option" >
+      <div class="filter__checkbox">
+        <input type="checkbox" (change)="toggleLevel(level)" [checked]="selectedLevels.includes(level)" />
+      </div>
+      <p class="filter__option-title" title="{{ level }}">
+        {{ level }}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="filter filter">
+  <div class="filter__header">
+    <h3 class="filter__header__title">Nation</h3>
+  </div>
+  <div class="filter__content">
+    <div *ngFor="let nation of nationsItems" class="filter__option" >
+      <div class="filter__checkbox">
+        <input type="checkbox" (change)="toggleNations(nation)" [checked]="selectedNations.includes(nation)" />
+      </div>
+      <p class="filter__option-title" title="{{ nation }}">
+        {{ nation }}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="filter">
+  <div class="filter__header">
+    <h3 class="filter__header__title">Class</h3>
+  </div>
+  <div class="filter__content">
+    <div  *ngFor="let className of classNamesItems" class="filter__option" >
+      <div class="filter__checkbox">
+        <input  type="checkbox" (change)="toggleClassName(className)" [checked]="selectedClassNames.includes(className)" />
+      </div>
+      <p class="filter__option-title" title="{{ className }}">
+       {{ className }}
+      </p>
+    </div>
+  </div>
+</div>
+<button class="filter__clear-btn" (click)="clearAll()">
+  Clear all
+</button>
